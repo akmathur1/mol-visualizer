@@ -5,7 +5,7 @@ import py3Dmol
 from io import BytesIO
 from PIL import Image
 
-st.set_page_config(page_title="Molecule Structure Visualizer", layout="wide")
+st.set_page_config(page_title="Molecule Structure Visualizer by Arjun Mathur", layout="wide")
 
 st.title("🔬 Molecule Structure Visualizer")
 
