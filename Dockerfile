@@ -3,15 +3,16 @@ FROM continuumio/miniconda3
 # Set working directory
 WORKDIR /app
 
-# Copy your code
+# Copy project files
 COPY . /app
 
-# Create environment
+# Install RDKit and other dependencies
 RUN conda install -y -c conda-forge rdkit python=3.9 \
     && pip install streamlit py3Dmol pillow
 
-# Expose the default Streamlit port
+# Let Render know which port to use
+ENV PORT=10000
 EXPOSE 10000
 
-# Run the Streamlit app
-CMD ["streamlit", "run", "app.py", "--server.port=10000", "--server.address=0.0.0.0"]
+# Start the Streamlit app
+CMD streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
